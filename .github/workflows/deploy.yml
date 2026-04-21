@@ -23,3 +23,16 @@ jobs:
 
       - name: push image
         run: docker push ${{secrets.DOCKER_USERNAME}}/app 
+      
+      - name: ssh setup
+        run: |
+          echo "${{secrets.EC2_key}}" > key.pem
+      
+      - name: deploy      
+        run: |
+          ssh -o StrictHostKeyChecking=no -i key.pem ${{secrets.ec2url}} << 'EOF'
+            docker pull rajeevguptaaa/app
+            docker stop app-cont || true
+            docker rm app-cont || true
+            docker run -d -p 5000:5000 --name app rajeevguptaaa/app:latest
+          EOF
