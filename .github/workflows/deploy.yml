@@ -36,4 +36,4 @@ jobs:
             docker stop app-cont || true
             docker rm app-cont || true
             docker run -d -p 5000:5000 --name app-cont rajeevguptaaa/app:latest
-          EOF 
+          EOF   
