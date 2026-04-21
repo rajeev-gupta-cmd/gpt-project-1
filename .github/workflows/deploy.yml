@@ -28,7 +28,7 @@ jobs:
         run: |
           echo "${{secrets.EC2_key}}" > key.pem
           chmod 600 key.pem
-      
+       
       - name: deploy      
         run: |
           ssh -o StrictHostKeyChecking=no -i key.pem ${{secrets.ec2url}} << 'EOF'
