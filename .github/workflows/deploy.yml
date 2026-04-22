@@ -24,10 +24,10 @@ jobs:
  #     - name: push image
   #      run: docker push ${{secrets.DOCKER_USERNAME}}/app 
    #   
-    #  - name: ssh setup
- #       run: |
- #         echo "${{secrets.EC2_key}}" > key.pem
-  #        chmod 600 key.pem
+      - name: ssh setup
+        run: |
+          echo "${{secrets.EC2_key}}" > key.pem
+          chmod 600 key.pem
        
       - name: deploy      
         run: |
