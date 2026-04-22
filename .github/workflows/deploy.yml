@@ -33,5 +33,5 @@ jobs:
         run: |
           ssh -o StrictHostKeyChecking=no -i key.pem ${{ secrets.EC2_URL }} << EOF
           pwd
-          
+          cd /home/ubuntu/app
           EOF
