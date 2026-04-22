@@ -32,8 +32,7 @@ jobs:
       - name: deploy      
         run: |
           ssh -o StrictHostKeyChecking=no -i key.pem ${{ secrets.EC2_URL }} << EOF
-          docker pull rajeevguptaaa/app:latest
-          docker stop app-cont || true
-          docker rm app-cont || true
-          docker run -d -p 5000:5000 --name app-cont rajeevguptaaa/app:latest
+          docker compose down
+          docker compose up
+          
           EOF
