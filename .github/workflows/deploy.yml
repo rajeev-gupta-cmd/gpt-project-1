@@ -40,3 +40,4 @@ jobs:
           docker rm app-cont || true
           docker rename new-cont app-cont
           EOF
+          
