@@ -34,10 +34,9 @@ jobs:
           ssh -o StrictHostKeyChecking=no -i key.pem ${{secrets.EC2_USER}}@${{secrets.EC2_HOST}} << EOF
           docker pull ${{secrets.DOCKER_USERNAME}}/app:${{ github.sha}}
           docker run -d -p 5001:5001 --name new-cont ${{secrets.DOCKER_USERNAME}}/app:${{github.sha}}
-          sleep 8s
+          sleep 20s
           curl -f http://localhost:5001/ || exit 1
           docker stop app-cont || true
           docker rm app-cont || true
           docker rename new-cont app-cont
           EOF
-          

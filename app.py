@@ -9,7 +9,7 @@ notes = []
 def get_notes():
     return jsonify(notes)
 
-@app.route("")
+@app.route("/")
 def home():
     return "hello"   # error generate karega
  
