@@ -10,8 +10,8 @@ def get_notes():
     return jsonify(notes)
 
 @app.route("/")
-def hello():
-    return ("hello to my notes app")
+def home():
+    return 1/0   # error generate karega
 
 # POST new note
 @app.route("/notes", methods=["POST"])
@@ -36,4 +36,4 @@ def delete_note(note_id):
     
     return jsonify({"message": "not found"}), 404
 
-app.run(host="0.0.0.0", port=5000)
+app.run(host="0.0.0.0", port=5001)
