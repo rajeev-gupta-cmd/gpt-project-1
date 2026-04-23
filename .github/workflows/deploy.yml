@@ -38,7 +38,5 @@ jobs:
           curl -f http://localhost:5001/ || exit 1
           docker stop app-cont || true
           docker rm app-cont || true
-          docker run -d -p 5000:5000 --name app-cont ${{secrets.DOCKER_USERNAME}}/app:${{github.sha}}
-          docker stop new-cont || true
-          docker rm new-cont || true
+          docker rename new-cont app-cont
           EOF
