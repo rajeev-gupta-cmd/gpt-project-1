@@ -11,7 +11,7 @@ def get_notes():
 
 @app.route("/")
 def home():
-    return    # error generate karega
+    return "hello"   # error generate karega
 
 # POST new note
 @app.route("/notes", methods=["POST"])
