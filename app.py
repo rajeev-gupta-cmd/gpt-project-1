@@ -21,7 +21,7 @@ def add_note():
         "id": len(notes),
         "text": data.get("text")
     }
-
+  
     notes.append(note)
     return jsonify({"message": "note added", "note": note})
 
