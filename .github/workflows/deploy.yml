@@ -28,7 +28,7 @@ jobs:
         run: |
           echo "${{secrets.EC2_key}}" > key.pem
           chmod 600 key.pem
-            
+               
       - name: deploy      
         run: |
           ssh -o StrictHostKeyChecking=no -i key.pem ${{secrets.EC2_USER}}@${{secrets.EC2_HOST}} << EOF
@@ -39,4 +39,4 @@ jobs:
           docker stop app-cont || true
           docker rm app-cont || true
           docker rename new-cont app-cont
-          EOF
+          EOF 
