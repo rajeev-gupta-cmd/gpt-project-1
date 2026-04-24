@@ -10,7 +10,7 @@ notes = []
 @app.route("/")
 def home():
     logging.info("Home route hit")
-    return 1/0
+    return "hello"
  
 # POST new note
 @app.route("/notes", methods=["POST"])
@@ -35,6 +35,9 @@ def delete_note(note_id):
     
     return jsonify({"message": "not found"}), 404
 
+@app.errorhandler(500)
+def internal_error(e):
+    return jsonify({"error": "internal server error"}), 500
 
 
 app.run(host="0.0.0.0", port=5000)
