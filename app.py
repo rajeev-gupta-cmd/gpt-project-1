@@ -10,7 +10,7 @@ notes = []
 @app.route("/")
 def home():
     logging.info("Home route hit")
-    return "hello"
+    return 1/0
  
 # POST new note
 @app.route("/notes", methods=["POST"])
