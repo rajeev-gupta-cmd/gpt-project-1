@@ -11,10 +11,6 @@ notes = []
 def home():
     logging.info("Home route hit")
     return "hello"
-
-@app.route("/")
-def home():
-    return "hello"   # error generate karega
  
 # POST new note
 @app.route("/notes", methods=["POST"])
@@ -43,5 +39,5 @@ def delete_note(note_id):
 def internal_error(e):
     return jsonify({"error": "internal server error"}), 500
 
-    
-app.run(host="0.0.0.0", port=5001)
+
+app.run(host="0.0.0.0", port=5000)
